@@ -1,0 +1,28 @@
+{
+    "name": "lux-development",
+    "version": "1.0.0",
+    "description": "The development repository for lux.",
+    "scripts": {
+        "setup": "npm i",
+        "build": "npx sass --no-source-map --style=compressed source/main.scss:lux/main.css source/dark.scss:lux/dark.css",
+        "build:watch": "npx sass --watch --no-source-map --style=compressed source/main.scss:lux/main.css source/dark.scss:lux/dark.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/lucania-software/lux-development.git"
+    },
+    "keywords": [
+        "Lux",
+        "Style",
+        "Development"
+    ],
+    "author": "Jeremy Bankes",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/lucania-software/lux-development/issues"
+    },
+    "homepage": "https://github.com/lucania-software/lux-development#readme",
+    "devDependencies": {
+        "sass": "^1.70.0"
+    }
+}
