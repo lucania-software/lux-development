@@ -184,6 +184,10 @@ hr {
 
 @each $size in $sizes {
 
+    .maximum-width-#{$size} {
+        min-width: var(--width-#{$size});
+    }
+
     .minimum-width-#{$size} {
         min-width: var(--width-#{$size});
     }
