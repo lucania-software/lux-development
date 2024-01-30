@@ -120,7 +120,7 @@ hr {
     flex-wrap: wrap;
     justify-content: stretch;
     align-items: flex-start;
-    align-content: flex-start;
+    align-content: stretch;
     gap: var(--space-small);
 }
 
@@ -169,7 +169,7 @@ hr {
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
-    align-content: stretch;
+    align-content: flex-start;
     gap: var(--space-smaller);
 }
 
