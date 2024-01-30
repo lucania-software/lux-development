@@ -16,6 +16,7 @@ $colors: color-text,
     color-accent,
     color-accent-special,
     color-border;
+$positions: static, relative, fixed, absolute, sticky;
 
 /* Resets */
 
@@ -137,6 +138,12 @@ hr {
 @each $justification in $justifications {
     .justify-#{$justification} {
         justify-content: $justification;
+    }
+}
+
+@each $position in $positions {
+    .position-#{$position} {
+        position: $position;
     }
 }
 
