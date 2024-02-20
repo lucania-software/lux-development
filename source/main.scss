@@ -134,7 +134,6 @@ hr {
     }
 }
 
-
 @each $justification in $justifications {
     .justify-#{$justification} {
         justify-content: $justification;
@@ -191,6 +190,10 @@ hr {
 
 @each $size in $sizes {
 
+    .width-#{$size} {
+        width: var(--width-#{$size});
+    }
+
     .maximum-width-#{$size} {
         max-width: var(--width-#{$size});
     }
@@ -199,8 +202,12 @@ hr {
         min-width: var(--width-#{$size});
     }
 
+    .height-#{$size} {
+        height: var(--height-#{$size});
+    }
+
     .maximum-height-#{$size} {
-        max-width: var(--width-#{$size});
+        max-height: var(--height-#{$size});
     }
 
     .minimum-height-#{$size} {
@@ -225,10 +232,12 @@ hr {
 
 }
 
+.width-full,
 .expanding-width {
     width: 100%;
 }
 
+.height-full,
 .expanding-height {
     height: 100%;
 }
