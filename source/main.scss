@@ -270,6 +270,10 @@ hr {
 
 }
 
+.border {
+    border: var(--border);
+}
+
 .border-radius-circle {
     border-radius: 50%;
 }
@@ -284,6 +288,10 @@ hr {
 
     .foreground-#{$color} {
         color: var(--#{$color});
+    }
+
+    .border-#{$color} {
+        border-color: var(--#{$color});
     }
 
 }
