@@ -162,6 +162,10 @@ hr {
     gap: 0;
 }
 
+.no-text-wrap {
+    white-space: nowrap;
+}
+
 .input-container {
     display: flex;
     flex-direction: column;
