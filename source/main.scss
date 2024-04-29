@@ -331,8 +331,7 @@ button {
 
 input:focus,
 select:focus,
-textarea:focus,
-button:focus {
+textarea:focus {
     background-color: var(--color-input-special);
 }
 
