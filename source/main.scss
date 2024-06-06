@@ -17,6 +17,7 @@ $colors: color-text,
     color-accent-special,
     color-border;
 $positions: static, relative, fixed, absolute, sticky;
+$overflows: visible, hidden, scroll, auto;
 
 /* Resets */
 
@@ -252,6 +253,20 @@ hr {
 
 .contracting-height {
     height: 0;
+}
+
+/* Scrolling */
+
+@each $overflow in $overflows {
+
+    .horizontal-scroll-#{$overflow} {
+        overflow-x: $overflow;
+    }
+
+    .vertical-scroll-#{$overflow} {
+        overflow-x: $overflow;
+    }
+
 }
 
 /* Aesthetic */
