@@ -1,23 +1,4 @@
-@use "root";
-
-$alignments: normal, stretch, center, start, end, flex-start, flex-end;
-$justifications: normal, stretch, center, start, end, flex-start, flex-end, space-between, space-around, space-evenly;
-$sizes: none, smaller, small, medium, large, larger;
-$text-alignments: start, end, center, justify;
-$font-styles: normal, italic, oblique;
-$colors: color-text,
-    color-text-special,
-    color-page,
-    color-page-special,
-    color-input,
-    color-input-special,
-    color-input-text,
-    color-input-text-special,
-    color-accent,
-    color-accent-special,
-    color-border;
-$positions: static, relative, fixed, absolute, sticky;
-$overflows: visible, hidden, scroll, auto;
+@import "root";
 
 /* Resets */
 
@@ -147,6 +128,12 @@ hr {
     }
 }
 
+@each $display in $displays {
+    .display-#{$display} {
+        display: $display;
+    }
+}
+
 .breathable {
     padding: var(--space-small);
 }
@@ -259,14 +246,98 @@ hr {
 
 @each $overflow in $overflows {
 
-    .horizontal-scroll-#{$overflow} {
+    .horizontal-overflow-#{$overflow} {
         overflow-x: $overflow;
     }
 
-    .vertical-scroll-#{$overflow} {
+    .vertical-overflow-#{$overflow} {
         overflow-x: $overflow;
     }
 
+}
+
+/* Responsive */
+
+@each $size in $sizes {
+    @media only screen and (max-width: $size) {
+        .to-column-under-#{$size}-width {
+            flex-flow: column nowrap;
+        }
+
+        .to-row-under-#{$size}-width {
+            flex-flow: row wrap;
+        }
+
+        .to-rack-under-#{$size}-width {
+            flex-flow: row nowrap;
+        }
+
+        @each $alignment in $alignments {
+            .align-#{$alignment}-under-#{$size}-width {
+                align-items: $alignment;
+            }
+        }
+
+        @each $justification in $justifications {
+            .justify-#{$justification}-under-#{$size}-width {
+                justify-content: $justification;
+            }
+        }
+
+        .no-scroll-under-#{$size}-width {
+            overflow-y: unset;
+            min-height: auto;
+            height: auto;
+        }
+
+        .hidden-under-#{$size}-width {
+            display: none;
+        }
+
+        .shown-under-#{$size}-width {
+            display: block;
+        }
+    }
+
+    @media only screen and (min-width: $size) {
+        .to-column-over-#{$size}-width {
+            flex-flow: column nowrap;
+        }
+
+        .to-row-over-#{$size}-width {
+            flex-flow: row wrap;
+        }
+
+        .to-rack-over-#{$size}-width {
+            flex-flow: row nowrap;
+        }
+
+        @each $alignment in $alignments {
+            .align-#{$alignment}-over-#{$size}-width {
+                align-items: $alignment;
+            }
+        }
+
+        @each $justification in $justifications {
+            .justify-#{$justification}-over-#{$size}-width {
+                justify-content: $justification;
+            }
+        }
+
+        .no-scroll-over-#{$size}-width {
+            overflow-y: unset;
+            min-height: auto;
+            height: auto;
+        }
+
+        .hidden-over-#{$size}-width {
+            display: none;
+        }
+
+        .shown-over-#{$size}-width {
+            display: block;
+        }
+    }
 }
 
 /* Aesthetic */
@@ -476,6 +547,50 @@ textarea::-webkit-resizer {
     background-color: var(--color-accent);
     border-top-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
+}
+
+// Loading Animation
+
+.loading {
+    position: relative;
+    overflow: visible;
+}
+
+.loading::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    opacity: var(--translucent-opacity);
+    border-radius: var(--border-radius);
+    z-index: 150;
+}
+
+.loading:after {
+    content: " ";
+    position: absolute;
+    width: var(--space-larger);
+    height: var(--space-larger);
+    top: calc(50% - var(--space-larger));
+    left: calc(50% - var(--space-larger));
+    border-radius: 50%;
+    border: var(--space-small) solid var(--color-accent);
+    border-color: transparent var(--color-accent) transparent var(--color-accent);
+    animation: loading 1s ease-in-out infinite;
+    z-index: 151;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
 }
 
 // Scrollbar

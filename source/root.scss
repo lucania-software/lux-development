@@ -1,3 +1,39 @@
+$width-smaller: 200px;
+$width-small: 400px;
+$width-medium: 800px;
+$width-large: 1200px;
+$width-larger: 1600px;
+
+$height-smaller: 80px;
+$height-small: 120px;
+$height-medium: 240px;
+$height-large: 400px;
+$height-larger: 800px;
+
+$alignments: normal, stretch, center, start, end, flex-start, flex-end;
+$justifications: normal, stretch, center, start, end, flex-start, flex-end, space-between, space-around, space-evenly;
+$sizes: none, smaller, small, medium, large, larger;
+$text-alignments: start, end, center, justify;
+$font-styles: normal, italic, oblique;
+$colors: color-text,
+    color-text-special,
+    color-page,
+    color-page-special,
+    color-input,
+    color-input-special,
+    color-input-text,
+    color-input-text-special,
+    color-accent,
+    color-accent-special,
+    color-border,
+    color-positive,
+    color-neutral,
+    color-negative,
+    color-caution;
+$positions: static, relative, fixed, absolute, sticky;
+$displays: block, inline-block, none, flex, grid;
+$overflows: visible, hidden, scroll, auto;
+
 :root {
     /* Colors */
     --color-text: #333333;
@@ -11,6 +47,11 @@
     --color-accent: #0070A0;
     --color-accent-special: #2090D0;
     --color-border: #dddddd;
+
+    --color-positive: #28a745;
+    --color-neutral: #6c757d;
+    --color-negative: #dc3545;
+    --color-caution: #ffc107;
 
     /* Spacing */
     --space-none: 0;
@@ -51,18 +92,18 @@
 
     /* Sizes */
     --width-none: 0;
-    --width-smaller: 200px;
-    --width-small: 400px;
-    --width-medium: 800px;
-    --width-large: 1200px;
-    --width-larger: 1600px;
+    --width-smaller: $width-smaller;
+    --width-small: $width-small;
+    --width-medium: $width-medium;
+    --width-large: $width-large;
+    --width-larger: $width-larger;
 
     --height-none: 0;
-    --height-smaller: 80px;
-    --height-small: 120px;
-    --height-medium: 240px;
-    --height-large: 400px;
-    --height-larger: 800px;
+    --height-smaller: $height-smaller;
+    --height-small: $height-small;
+    --height-medium: $height-medium;
+    --height-large: $height-large;
+    --height-larger: $height-larger;
 
     /* Borders */
     --border-width: 1px;
@@ -71,4 +112,7 @@
 
     /* Transition */
     --hover-transition-duration: 200ms;
+
+    /* Opacities */
+    --translucent-opacity: 0.5;
 }
