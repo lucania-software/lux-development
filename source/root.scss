@@ -92,18 +92,18 @@ $overflows: visible, hidden, scroll, auto;
 
     /* Sizes */
     --width-none: 0;
-    --width-smaller: $width-smaller;
-    --width-small: $width-small;
-    --width-medium: $width-medium;
-    --width-large: $width-large;
-    --width-larger: $width-larger;
+    --width-smaller: #{$width-smaller};
+    --width-small: #{$width-small};
+    --width-medium: #{$width-medium};
+    --width-large: #{$width-large};
+    --width-larger: #{$width-larger};
 
     --height-none: 0;
-    --height-smaller: $height-smaller;
-    --height-small: $height-small;
-    --height-medium: $height-medium;
-    --height-large: $height-large;
-    --height-larger: $height-larger;
+    --height-smaller: #{$height-smaller};
+    --height-small: #{$height-small};
+    --height-medium: #{$height-medium};
+    --height-large: #{$height-large};
+    --height-larger: #{$height-larger};
 
     /* Borders */
     --border-width: 1px;
