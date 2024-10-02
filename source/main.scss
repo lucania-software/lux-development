@@ -252,7 +252,7 @@ hr {
     }
 
     .vertical-overflow-#{$overflow} {
-        overflow-x: $overflow;
+        overflow-y: $overflow;
     }
 
 }
