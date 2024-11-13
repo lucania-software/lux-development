@@ -534,7 +534,7 @@ input[type="radio"]:checked {
 }
 
 input[type="color"] {
-    background-color: var(--color-accent);
+    background-color: var(--color-input);
     width: 100%;
     cursor: pointer;
     padding: 0;
@@ -544,8 +544,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
     margin: auto;
     width: calc(100% - calc(var(--space-medium) * 2));
-    border-left: var(--border);
-    border-right: var(--border);
+    border: var(--border);
+    border-color: var(--color-input);
 }
 
 input[type="color"]::-webkit-color-swatch {
