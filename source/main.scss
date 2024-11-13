@@ -53,7 +53,7 @@ label {
 a {
     color: var(--color-accent);
     text-decoration: none;
-    transition-delay: 0;
+    transition-delay: 0ms;
     transition-duration: var(--hover-transition-duration);
     transition-property: color;
     transition-timing-function: ease;
@@ -149,6 +149,10 @@ hr {
 
 .no-gap {
     gap: 0;
+}
+
+.no-wrap {
+    flex-wrap: nowrap;
 }
 
 .no-text-wrap {
@@ -255,6 +259,13 @@ hr {
         overflow-y: $overflow;
     }
 
+}
+
+.vertical-scroll-container {
+    @extend .card;
+    height: 0;
+    flex-grow: 1;
+    overflow-y: scroll;
 }
 
 /* Responsive */
@@ -365,8 +376,22 @@ hr {
     border: var(--border);
 }
 
+.border-none {
+    border: none;
+}
+
 .border-radius-circle {
     border-radius: 50%;
+}
+
+/* Cursors */
+
+@each $cursor in $cursors {
+
+    .cursor-#{$cursor} {
+        cursor: #{$cursor};
+    }
+
 }
 
 /* Colors */
@@ -385,6 +410,10 @@ hr {
         border-color: var(--#{$color});
     }
 
+    .fill-#{$color} path {
+        fill: var(--#{$color});
+    }
+
 }
 
 @each $font-style in $font-styles {
@@ -395,21 +424,37 @@ hr {
 
 }
 
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.text-decoration-underline {
+    text-decoration: underline;
+}
+
+.text-decoration-overline {
+    text-decoration: overline;
+}
+
+.text-decoration-error {
+    text-decoration: underline wavy var(--color-negative);
+}
+
 /* Inputs */
 
 input,
 select,
 textarea,
 button {
-    width: 100%;
-    height: var(--input-size);
-    padding: var(--space-smaller);
+    height: calc(var(--space-large)* 2);
+    line-height: 1;
+    padding: var(--space-small);
     background-color: var(--color-input);
     color: var(--color-input-text);
     border: none;
     font-family: var(--font-family-regular);
     border-radius: var(--border-radius);
-    transition-delay: 0;
+    transition-delay: 0ms;
     transition-duration: var(--hover-transition-duration);
     transition-property: background-color;
     transition-timing-function: ease;
@@ -422,14 +467,23 @@ textarea:focus {
     background-color: var(--color-input-special);
 }
 
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
 button,
 input::-webkit-file-upload-button,
 input[type="range"]::-webkit-slider-thumb {
-    width: 100%;
-    height: var(--input-size);
+    @extend .rack;
+    @extend .align-center;
+    @extend .justify-center;
     background-color: var(--color-accent);
     color: var(--color-input-text-special);
     border: none;
@@ -439,15 +493,15 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-input[type="color"]:hover,
-input[type="color"]:focus,
-button:hover,
-input::-webkit-file-upload-button:hover,
-input::-webkit-file-upload-button:hover,
-input[type="range"]::-webkit-slider-thumb:hover {
+input[type="button"]:not(:disabled):hover,
+input[type="reset"]:not(:disabled):hover,
+input[type="submit"]:not(:disabled):hover,
+input[type="color"]:not(:disabled):hover,
+input[type="color"]:not(:disabled):focus,
+button:not(:disabled):hover,
+input::-webkit-file-upload-button:not(:disabled):hover,
+input::-webkit-file-upload-button:not(:disabled):hover,
+input[type="range"]::-webkit-slider-thumb:not(:disabled):hover {
     background-color: var(--color-accent-special);
 }
 
@@ -548,6 +602,44 @@ textarea::-webkit-resizer {
     background-color: var(--color-accent);
     border-top-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
+}
+
+// Switch
+
+input[type="checkbox"].switch,
+input[type="radio"].switch {
+    position: relative;
+    border: none;
+    background-color: var(--color-input);
+    width: calc(var(--space-larger) * 3);
+    cursor: pointer;
+}
+
+input[type="checkbox"].switch::after,
+input[type="radio"].switch::after {
+    content: "OFF";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-smaller);
+    font-weight: var(--font-weight-large);
+    color: var(--color-page);
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--color-negative);
+    border-radius: var(--border-radius);
+    border: none;
+    transform: none;
+}
+
+input[type="checkbox"].switch:checked::after,
+input[type="radio"].switch:checked::after {
+    content: "ON";
+    background-color: var(--color-accent);
+    left: 50%;
 }
 
 // Loading Animation
