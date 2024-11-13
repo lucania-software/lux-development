@@ -271,6 +271,15 @@ hr {
 /* Responsive */
 
 @each $size in $sizes {
+
+    .shown-under-#{$size}-width {
+        display: none;
+    }
+
+    .shown-over-#{$size}-width {
+        display: none;
+    }
+
     @media only screen and (max-width: $size) {
         .to-column-under-#{$size}-width {
             flex-flow: column nowrap;
