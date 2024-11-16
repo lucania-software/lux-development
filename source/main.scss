@@ -1,3 +1,4 @@
+@use "sass:map";
 @import "root";
 
 /* Resets */
@@ -280,85 +281,90 @@ hr {
         display: none;
     }
 
-    @media only screen and (max-width: $size) {
-        .to-column-under-#{$size}-width {
-            flex-flow: column nowrap;
-        }
+    @if map.get($widths, $size) !=null {
 
-        .to-row-under-#{$size}-width {
-            flex-flow: row wrap;
-        }
+        @media only screen and (max-width: map.get($widths, $size)) {
+            .to-column-under-#{$size}-width {
+                flex-flow: column nowrap;
+            }
 
-        .to-rack-under-#{$size}-width {
-            flex-flow: row nowrap;
-        }
+            .to-row-under-#{$size}-width {
+                flex-flow: row wrap;
+            }
 
-        @each $alignment in $alignments {
-            .align-#{$alignment}-under-#{$size}-width {
-                align-items: $alignment;
+            .to-rack-under-#{$size}-width {
+                flex-flow: row nowrap;
+            }
+
+            @each $alignment in $alignments {
+                .align-#{$alignment}-under-#{$size}-width {
+                    align-items: $alignment;
+                }
+            }
+
+            @each $justification in $justifications {
+                .justify-#{$justification}-under-#{$size}-width {
+                    justify-content: $justification;
+                }
+            }
+
+            .no-scroll-under-#{$size}-width {
+                overflow-y: unset;
+                min-height: auto;
+                height: auto;
+            }
+
+            .hidden-under-#{$size}-width {
+                display: none;
+            }
+
+            .shown-under-#{$size}-width {
+                display: block;
             }
         }
 
-        @each $justification in $justifications {
-            .justify-#{$justification}-under-#{$size}-width {
-                justify-content: $justification;
+        @media only screen and (min-width: map.get($widths, $size)) {
+            .to-column-over-#{$size}-width {
+                flex-flow: column nowrap;
+            }
+
+            .to-row-over-#{$size}-width {
+                flex-flow: row wrap;
+            }
+
+            .to-rack-over-#{$size}-width {
+                flex-flow: row nowrap;
+            }
+
+            @each $alignment in $alignments {
+                .align-#{$alignment}-over-#{$size}-width {
+                    align-items: $alignment;
+                }
+            }
+
+            @each $justification in $justifications {
+                .justify-#{$justification}-over-#{$size}-width {
+                    justify-content: $justification;
+                }
+            }
+
+            .no-scroll-over-#{$size}-width {
+                overflow-y: unset;
+                min-height: auto;
+                height: auto;
+            }
+
+            .hidden-over-#{$size}-width {
+                display: none;
+            }
+
+            .shown-over-#{$size}-width {
+                display: block;
             }
         }
 
-        .no-scroll-under-#{$size}-width {
-            overflow-y: unset;
-            min-height: auto;
-            height: auto;
-        }
-
-        .hidden-under-#{$size}-width {
-            display: none;
-        }
-
-        .shown-under-#{$size}-width {
-            display: block;
-        }
     }
 
-    @media only screen and (min-width: $size) {
-        .to-column-over-#{$size}-width {
-            flex-flow: column nowrap;
-        }
-
-        .to-row-over-#{$size}-width {
-            flex-flow: row wrap;
-        }
-
-        .to-rack-over-#{$size}-width {
-            flex-flow: row nowrap;
-        }
-
-        @each $alignment in $alignments {
-            .align-#{$alignment}-over-#{$size}-width {
-                align-items: $alignment;
-            }
-        }
-
-        @each $justification in $justifications {
-            .justify-#{$justification}-over-#{$size}-width {
-                justify-content: $justification;
-            }
-        }
-
-        .no-scroll-over-#{$size}-width {
-            overflow-y: unset;
-            min-height: auto;
-            height: auto;
-        }
-
-        .hidden-over-#{$size}-width {
-            display: none;
-        }
-
-        .shown-over-#{$size}-width {
-            display: block;
-        }
-    }
 }
 
 /* Aesthetic */

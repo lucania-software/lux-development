@@ -1,14 +1,22 @@
-$width-smaller: 200px;
-$width-small: 400px;
-$width-medium: 800px;
-$width-large: 1200px;
-$width-larger: 1600px;
+@use "sass:map";
 
-$height-smaller: 80px;
-$height-small: 120px;
-$height-medium: 240px;
-$height-large: 400px;
-$height-larger: 800px;
+$widths: (
+    none: 0px,
+    smaller: 200px,
+    small: 400px,
+    medium: 800px,
+    large: 1200px,
+    larger: 1600px,
+);
+
+$heights: (
+    none: 0px,
+    smaller: 80px,
+    small: 120px,
+    medium: 240px,
+    large: 400px,
+    larger: 800px,
+);
 
 $alignments: normal, stretch, center, start, end, flex-start, flex-end;
 $justifications: normal, stretch, center, start, end, flex-start, flex-end, space-between, space-around, space-evenly;
@@ -95,19 +103,19 @@ $cursors: alias, all-scroll, auto, cell, col-resize, context-menu, copy, crossha
     /* Sizes */
     --width-none: 0;
     --width-auto: auto;
-    --width-smaller: #{$width-smaller};
-    --width-small: #{$width-small};
-    --width-medium: #{$width-medium};
-    --width-large: #{$width-large};
-    --width-larger: #{$width-larger};
+    --width-smaller: #{map.get($widths, "smaller")};
+    --width-small: #{map.get($widths, "small")};
+    --width-medium: #{map.get($widths, "medium")};
+    --width-large: #{map.get($widths, "large")};
+    --width-larger: #{map.get($widths, "larger")};
 
     --height-none: 0;
     --height-auto: auto;
-    --height-smaller: #{$height-smaller};
-    --height-small: #{$height-small};
-    --height-medium: #{$height-medium};
-    --height-large: #{$height-large};
-    --height-larger: #{$height-larger};
+    --height-smaller: #{map.get($heights, "smaller")};
+    --height-small: #{map.get($heights, "small")};
+    --height-medium: #{map.get($heights, "medium")};
+    --height-large: #{map.get($heights, "large")};
+    --height-larger: #{map.get($heights, "larger")};
 
     /* Borders */
     --border-width: 1px;
