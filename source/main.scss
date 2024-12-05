@@ -752,6 +752,10 @@ input[type=radio].switch:checked::after {
     z-index: 151;
 }
 
+.removed {
+    display: none;
+}
+
 @keyframes loading {
     0% {
         transform: rotate(0deg);
