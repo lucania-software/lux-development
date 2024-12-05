@@ -204,23 +204,23 @@ table tfoot td {
     color: var(--color-page);
 }
 
-table > *:first-child > tr:first-child > th:first-child,
-table > *:first-child > tr:first-child > td:first-child {
+table>*:first-child>tr:first-child>th:first-child,
+table>*:first-child>tr:first-child>td:first-child {
     border-top-left-radius: var(--border-radius);
 }
 
-table > *:first-child tr:first-child > th:last-child,
-table > *:first-child tr:first-child > td:last-child {
+table>*:first-child tr:first-child>th:last-child,
+table>*:first-child tr:first-child>td:last-child {
     border-top-right-radius: var(--border-radius);
 }
 
-table > *:last-child > tr:last-child > th:first-child,
-table > *:last-child > tr:last-child > td:first-child {
+table>*:last-child>tr:last-child>th:first-child,
+table>*:last-child>tr:last-child>td:first-child {
     border-bottom-left-radius: var(--border-radius);
 }
 
-table > *:last-child > tr:last-child > th:last-child,
-table > *:last-child > tr:last-child > td:last-child {
+table>*:last-child>tr:last-child>th:last-child,
+table>*:last-child>tr:last-child>td:last-child {
     border-bottom-right-radius: var(--border-radius);
 }
 
@@ -542,12 +542,11 @@ button:disabled {
     opacity: 0.75;
 }
 
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
+input[type=button],
+input[type=reset],
+input[type=submit],
 button,
-input::-webkit-file-upload-button,
-input[type="range"]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     @extend .rack;
     @extend .align-center;
     @extend .justify-center;
@@ -560,41 +559,41 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-input[type="button"]:not(:disabled):hover,
-input[type="reset"]:not(:disabled):hover,
-input[type="submit"]:not(:disabled):hover,
-input[type="color"]:not(:disabled):hover,
-input[type="color"]:not(:disabled):focus,
+input[type=button]:not(:disabled):hover,
+input[type=reset]:not(:disabled):hover,
+input[type=submit]:not(:disabled):hover,
+input[type=color]:not(:disabled):hover,
+input[type=color]:not(:disabled):focus,
 button:not(:disabled):hover,
 input::-webkit-file-upload-button:not(:disabled):hover,
 input::-webkit-file-upload-button:not(:disabled):hover,
-input[type="range"]::-webkit-slider-thumb:not(:disabled):hover {
+input[type=range]::-webkit-slider-thumb:not(:disabled):hover {
     background-color: var(--color-accent-special);
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type=checkbox],
+input[type=radio] {
     width: var(--space-larger);
     height: var(--space-larger);
 }
 
-input[type="radio"] {
+input[type=radio] {
     border-radius: 50%;
 }
 
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
+input[type=checkbox]:checked,
+input[type=radio]:checked {
     background-color: var(--color-accent);
 }
 
-input[type="color"] {
+input[type=color] {
     background-color: var(--color-input);
     width: 100%;
     cursor: pointer;
     padding: 0;
 }
 
-input[type="color"]::-webkit-color-swatch-wrapper {
+input[type=color]::-webkit-color-swatch-wrapper {
     padding: 0;
     margin: auto;
     width: calc(100% - calc(var(--space-medium) * 2));
@@ -602,7 +601,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     border-color: var(--color-input);
 }
 
-input[type="color"]::-webkit-color-swatch {
+input[type=color]::-webkit-color-swatch {
     border: none;
 }
 
@@ -629,14 +628,23 @@ input::-webkit-search-cancel-button:hover {
     background-color: var(--color-accent-special);
 }
 
-input[type="file"] {
+input[type=file] {
     padding: 0;
-    text-align: end;
 }
 
-input[type="file"]::-webkit-file-upload-button {
-    width: min-content;
-    text-align: middle;
+input[type=file]::file-selector-button {
+    background-color: var(--color-accent);
+    font-weight: var(--font-weight-large);
+    color: var(--color-page);
+    font-size: 1rem;
+    height: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: var(--color-accent-special);
 }
 
 input::-webkit-outer-spin-button,
@@ -644,18 +652,18 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
-input[type="range"] {
+input[type=range] {
     cursor: pointer;
     padding: 0;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {
     height: 100%;
     padding: 0;
     background-color: transparent;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     height: var(--input-size);
     width: var(--input-size);
     -webkit-appearance: none;
@@ -674,8 +682,8 @@ textarea::-webkit-resizer {
 
 // Switch
 
-input[type="checkbox"].switch,
-input[type="radio"].switch {
+input[type=checkbox].switch,
+input[type=radio].switch {
     position: relative;
     border: none;
     background-color: var(--color-input);
@@ -683,8 +691,8 @@ input[type="radio"].switch {
     cursor: pointer;
 }
 
-input[type="checkbox"].switch::after,
-input[type="radio"].switch::after {
+input[type=checkbox].switch::after,
+input[type=radio].switch::after {
     content: "OFF";
     position: absolute;
     display: flex;
@@ -703,8 +711,8 @@ input[type="radio"].switch::after {
     transform: none;
 }
 
-input[type="checkbox"].switch:checked::after,
-input[type="radio"].switch:checked::after {
+input[type=checkbox].switch:checked::after,
+input[type=radio].switch:checked::after {
     content: "ON";
     background-color: var(--color-accent);
     left: 50%;
