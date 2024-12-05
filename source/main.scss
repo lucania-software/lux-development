@@ -186,6 +186,54 @@ hr {
     cursor: pointer;
 }
 
+// Tables
+
+table {
+    border-collapse: collapse;
+    background-color: var(--color-input);
+    border-radius: var(--border-radius);
+}
+
+table thead td,
+table thead th,
+table tfoot th,
+table tfoot td {
+    background-color: var(--color-accent);
+    padding-left: var(--space-small);
+    padding-right: var(--space-small);
+    color: var(--color-page);
+}
+
+table > *:first-child > tr:first-child > th:first-child,
+table > *:first-child > tr:first-child > td:first-child {
+    border-top-left-radius: var(--border-radius);
+}
+
+table > *:first-child tr:first-child > th:last-child,
+table > *:first-child tr:first-child > td:last-child {
+    border-top-right-radius: var(--border-radius);
+}
+
+table > *:last-child > tr:last-child > th:first-child,
+table > *:last-child > tr:last-child > td:first-child {
+    border-bottom-left-radius: var(--border-radius);
+}
+
+table > *:last-child > tr:last-child > th:last-child,
+table > *:last-child > tr:last-child > td:last-child {
+    border-bottom-right-radius: var(--border-radius);
+}
+
+table th,
+table td {
+    padding: var(--space-smaller);
+    text-align: center;
+}
+
+table tr:nth-child(odd) {
+    background-color: var(--color-input-special);
+}
+
 @each $size in $sizes {
 
     .width-#{$size} {
