@@ -18,6 +18,7 @@ html {
     background-color: var(--color-page-special);
     color: var(--color-text);
     font-family: var(--font-family-regular);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -74,6 +75,12 @@ hr {
     height: 1px;
     background-color: var(--color-border);
     border: none;
+}
+
+ul,
+ol {
+    padding-left: var(--space-medium);
+    list-style-position: inside;
 }
 
 /* Layout */
@@ -370,7 +377,7 @@ hr {
 /* Aesthetic */
 
 .card {
-    padding: var(--space-small);
+    padding: var(--space-medium);
     border-radius: var(--border-radius);
     background-color: var(--color-page);
 }
@@ -500,9 +507,6 @@ input[type="submit"],
 button,
 input::-webkit-file-upload-button,
 input[type="range"]::-webkit-slider-thumb {
-    @extend .rack;
-    @extend .align-center;
-    @extend .justify-center;
     background-color: var(--color-accent);
     color: var(--color-input-text-special);
     border: none;
@@ -536,7 +540,20 @@ input[type="radio"] {
 
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
+    position: relative;
     background-color: var(--color-accent);
+}
+
+input[type="checkbox"]:not(.switch):checked::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-input-text-special);
+    clip-path: polygon(40% 60%, 80% 0, 100% 20%, 40% 100%, 0 60%, 20% 40%);
+    transform: scale(0.75);
 }
 
 input[type="color"] {
@@ -586,9 +603,8 @@ input[type="file"] {
     text-align: end;
 }
 
-input[type="file"]::-webkit-file-upload-button {
-    width: min-content;
-    text-align: middle;
+input[type="file"]::file-selector-button {
+    height: 100%;
 }
 
 input::-webkit-outer-spin-button,
@@ -713,7 +729,11 @@ input[type="radio"].switch:checked::after {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-page);
+    background-color: var(--color-page-special);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--color-page-special);
 }
 
 ::-webkit-scrollbar-thumb {
