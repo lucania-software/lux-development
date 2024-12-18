@@ -521,8 +521,7 @@ select,
 textarea,
 button {
     height: calc(var(--space-large)* 2);
-    line-height: 1;
-    padding: var(--space-small);
+    padding: var(--space-smaller);
     background-color: var(--color-input);
     color: var(--color-input-text);
     border: none;
