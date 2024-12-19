@@ -422,6 +422,10 @@ table tr:nth-child(odd) {
 
 }
 
+.hide-when-empty:empty {
+    display: none;
+}
+
 /* Aesthetic */
 
 .card {
