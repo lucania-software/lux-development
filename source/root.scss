@@ -37,7 +37,8 @@ $colors: color-text,
     color-positive,
     color-neutral,
     color-negative,
-    color-caution;
+    color-caution,
+    color-none;
 $positions: static, relative, fixed, absolute, sticky;
 $displays: block, inline-block, none, flex, grid;
 $overflows: visible, hidden, scroll, auto;
@@ -62,6 +63,8 @@ $cursors: alias, all-scroll, auto, cell, col-resize, context-menu, copy, crossha
     --color-neutral: #6c757d;
     --color-negative: #dc3545;
     --color-caution: #ffc107;
+
+    --color-none: transparent;
 
     /* Spacing */
     --space-none: 0;
