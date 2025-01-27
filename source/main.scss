@@ -733,7 +733,7 @@ textarea {
     resize: vertical;
 }
 
-textarea::-webkit-resizer {
+::-webkit-resizer {
     background-color: var(--color-accent);
     border-top-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
@@ -828,7 +828,7 @@ input[type=radio].switch:checked::after {
 // Scrollbar
 
 ::-webkit-scrollbar {
-    width: var(--space-large);
+    width: var(--space-small);
 }
 
 ::-webkit-scrollbar-track {
