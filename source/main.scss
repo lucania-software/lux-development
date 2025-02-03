@@ -829,6 +829,7 @@ input[type=radio].switch:checked::after {
 
 ::-webkit-scrollbar {
     width: var(--space-small);
+    height: var(--space-small);
 }
 
 ::-webkit-scrollbar-track {
