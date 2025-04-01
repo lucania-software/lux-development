@@ -1,5 +1,5 @@
 @use "sass:map";
-@import "root";
+@use "root" as root;
 
 /* Resets */
 
@@ -119,29 +119,30 @@ ol {
     flex: 1 1 0;
 }
 
-@each $alignment in $alignments {
+@each $alignment in root.$alignments {
     .align-#{$alignment} {
         align-items: $alignment;
     }
 }
 
-@each $justification in $justifications {
+@each $justification in root.$justifications {
     .justify-#{$justification} {
         justify-content: $justification;
     }
 }
 
-@each $position in $positions {
+@each $position in root.$positions {
     .position-#{$position} {
         position: $position;
     }
 }
 
-@each $display in $displays {
+@each $display in root.$displays {
     .display-#{$display} {
         display: $display;
     }
 }
+
 
 .breathable {
     padding: var(--space-small);
@@ -266,7 +267,7 @@ table tr:nth-child(odd) {
     overflow: hidden;
 }
 
-@each $size in $sizes {
+@each $size in root.$sizes {
 
     .width-#{$size} {
         width: var(--width-#{$size});
@@ -330,7 +331,7 @@ table tr:nth-child(odd) {
 
 /* Scrolling */
 
-@each $overflow in $overflows {
+@each $overflow in root.$overflows {
 
     .horizontal-overflow-#{$overflow} {
         overflow-x: $overflow;
@@ -351,7 +352,7 @@ table tr:nth-child(odd) {
 
 /* Responsive */
 
-@each $size in $sizes {
+@each $size in root.$sizes {
 
     .shown-under-#{$size}-width {
         display: none;
@@ -361,9 +362,9 @@ table tr:nth-child(odd) {
         display: none;
     }
 
-    @if map.get($widths, $size) !=null {
+    @if map.get(root.$widths, $size) !=null {
 
-        @media only screen and (max-width: map.get($widths, $size)) {
+        @media only screen and (max-width: map.get(root.$widths, $size)) {
             .to-column-under-#{$size}-width {
                 flex-flow: column nowrap;
             }
@@ -376,13 +377,13 @@ table tr:nth-child(odd) {
                 flex-flow: row nowrap;
             }
 
-            @each $alignment in $alignments {
+            @each $alignment in root.$alignments {
                 .align-#{$alignment}-under-#{$size}-width {
                     align-items: $alignment;
                 }
             }
 
-            @each $justification in $justifications {
+            @each $justification in root.$justifications {
                 .justify-#{$justification}-under-#{$size}-width {
                     justify-content: $justification;
                 }
@@ -403,7 +404,7 @@ table tr:nth-child(odd) {
             }
         }
 
-        @media only screen and (min-width: map.get($widths, $size)) {
+        @media only screen and (min-width: map.get(root.$widths, $size)) {
             .to-column-over-#{$size}-width {
                 flex-flow: column nowrap;
             }
@@ -416,13 +417,13 @@ table tr:nth-child(odd) {
                 flex-flow: row nowrap;
             }
 
-            @each $alignment in $alignments {
+            @each $alignment in root.$alignments {
                 .align-#{$alignment}-over-#{$size}-width {
                     align-items: $alignment;
                 }
             }
 
-            @each $justification in $justifications {
+            @each $justification in root.$justifications {
                 .justify-#{$justification}-over-#{$size}-width {
                     justify-content: $justification;
                 }
@@ -463,7 +464,7 @@ table tr:nth-child(odd) {
     border: var(--border);
 }
 
-@each $text-alignment in $text-alignments {
+@each $text-alignment in root.$text-alignments {
 
     .text-align-#{$text-alignment} {
         text-align: $text-alignment;
@@ -489,7 +490,7 @@ table tr:nth-child(odd) {
 
 /* Cursors */
 
-@each $cursor in $cursors {
+@each $cursor in root.$cursors {
 
     .cursor-#{$cursor} {
         cursor: #{$cursor};
@@ -499,7 +500,7 @@ table tr:nth-child(odd) {
 
 /* Colors */
 
-@each $color in $colors {
+@each $color in root.$colors {
 
     .background-#{$color} {
         background-color: var(--#{$color});
@@ -519,7 +520,7 @@ table tr:nth-child(odd) {
 
 }
 
-@each $font-style in $font-styles {
+@each $font-style in root.$font-styles {
 
     .font-style-#{$font-style} {
         font-style: $font-style;
