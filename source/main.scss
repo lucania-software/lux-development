@@ -243,7 +243,6 @@ table tr:nth-child(odd) {
 }
 
 .scrollable-table-container {
-    @extend .force-border-radius;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
