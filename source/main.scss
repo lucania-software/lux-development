@@ -596,6 +596,15 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
+input[type=button],
+input[type=reset],
+input[type=submit],
+button {
+    @extend .rack;
+    @extend .align-center;
+    @extend .justify-center;
+}
+
 input[type=button]:not(:disabled):hover,
 input[type=reset]:not(:disabled):hover,
 input[type=submit]:not(:disabled):hover,
