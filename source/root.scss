@@ -37,7 +37,8 @@ $colors: color-text,
     color-positive,
     color-neutral,
     color-negative,
-    color-caution;
+    color-caution,
+    color-none;
 $positions: static, relative, fixed, absolute, sticky;
 $displays: block, inline-block, none, flex, grid;
 $overflows: visible, hidden, scroll, auto;
@@ -46,15 +47,15 @@ $cursors: alias, all-scroll, auto, cell, col-resize, context-menu, copy, crossha
 :root {
     /* Colors */
     --color-text: #333333;
-    --color-text-special: #222222;
+    --color-text-special: #104070;
     --color-page: #ffffff;
     --color-page-special: #cccccc;
     --color-input: #eeeeee;
     --color-input-special: #e6e6e6;
     --color-input-text: #000000;
     --color-input-text-special: #ffffff;
-    --color-accent: #007bff;
-    --color-accent-special: #2f93ff;
+    --color-accent: #2060A0;
+    --color-accent-special: #203040;
     --color-border: #dddddd;
 
     --color-positive: #28a745;
@@ -62,6 +63,8 @@ $cursors: alias, all-scroll, auto, cell, col-resize, context-menu, copy, crossha
     --color-neutral: #6c757d;
     --color-negative: #dc3545;
     --color-caution: #ffc107;
+
+    --color-none: transparent;
 
     /* Spacing */
     --space-none: 0;
@@ -120,7 +123,7 @@ $cursors: alias, all-scroll, auto, cell, col-resize, context-menu, copy, crossha
     /* Borders */
     --border-width: 1px;
     --border: var(--border-width) solid var(--color-border);
-    --border-radius: var(--space-small);
+    --border-radius: var(--space-smaller);
 
     /* Transition */
     --hover-transition-duration: 200ms;
